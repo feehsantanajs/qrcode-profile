@@ -17,7 +17,7 @@ module.exports = {
         'layout': '2rem 1fr 2rem',
       },
       gridTemplateColumns: {
-        'principal': '10rem 1fr',
+        'principal': '4rem 1fr',
       }
     },
   },
