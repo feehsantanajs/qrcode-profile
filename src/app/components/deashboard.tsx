@@ -19,8 +19,8 @@ export function Deaboard({ children }: Props) {
       </header>
       <main className="grid grid-cols-principal max-h-full h-[50rem] py-8">
         <div className="max-h-full flex flex-col gap-10">
-          <Link href="/"><BsPencilSquare size={25}/></Link>
-          <Link href="/search"><BsSearch size={25}/></Link>
+          <Link href="/"><BsPencilSquare size={25} className='transition ease-in-out duration-300 hover:text-pink-700'/></Link>
+          <Link href="/search"><BsSearch size={25} className='transition ease-in-out duration-300 hover:text-pink-700'/></Link>
         </div>
         <div>
           {children}
