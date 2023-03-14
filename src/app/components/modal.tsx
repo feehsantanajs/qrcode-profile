@@ -3,13 +3,17 @@ import { motion } from "framer-motion";
 import {QRCodeSVG} from 'qrcode.react';
 interface ModalProps {
   isActive:boolean ;
-  arrayDatas?:string[] | undefined
+  arrayDatas?:[
+    name: string,
+    linkedin_url:string,
+    github_url:string
+  ]
 }
 
 export function Modal({isActive,arrayDatas}:ModalProps) {
 
-  const name = arrayDatas[0].substring(0, arrayDatas[0].indexOf(' '))
-  const userLinkedin = arrayDatas[1].substring(30)
+  const name = arrayDatas?.[0].substring(0, arrayDatas[0].indexOf(' '))
+  const userLinkedin = arrayDatas?.[1].substring(30)
   
   if(isActive){
     return (

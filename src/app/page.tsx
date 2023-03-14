@@ -9,17 +9,24 @@ import { Deaboard } from "./components/deashboard";
 import { Modal } from "./components/modal";
 
 
+
 const schemaZod = z.object({
   name: z.string().min(1, { message: 'Required' }),
   linkedin_url: z.string().url({ message: "Invalid url" }),
   github_url: z.string().url({ message: "Invalid url" }),
 });
-
 type FormValue = z.infer<typeof schemaZod>;
+
+type userTypeState = [
+  name: string,
+  linkedin_url:string,
+  github_url:string
+]
+
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState(false);
-  const [user, setUser] = useState([""])
+  const [user, setUser] = useState<userTypeState>(["", "",""])
   const { register, handleSubmit, formState: { errors } } = useForm<FormValue>({
     resolver: zodResolver(schemaZod),
   });
