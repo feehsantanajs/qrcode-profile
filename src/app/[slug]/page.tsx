@@ -21,9 +21,13 @@ interface findDatasProps{
   createdAt?: string;
 }
 
+interface githubDatasProps{
+  bio:string;
+}
+
 export default function User({ params }: UserProps) {
 
-  const [datasGithub, setDatasGithub] = useState()
+  const [datasGithub, setDatasGithub] = useState<githubDatasProps>()
   const [findDatas, setFindDatas] = useState<findDatasProps | undefined>()
   const [isLoading, setIsLoding] = useState(true)
   
