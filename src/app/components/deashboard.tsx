@@ -1,5 +1,9 @@
 import Link from 'next/link';
 import {BsPencilSquare, BsSearch} from 'react-icons/bs'
+import {SiNextdotjs, SiReact, SiTailwindcss, SiVercel} from 'react-icons/si'
+import {AiFillHeart} from 'react-icons/ai'
+import Image from 'next/image';
+
 
 type Props = {
   children: string | JSX.Element | JSX.Element[];
@@ -26,7 +30,20 @@ export function Deaboard({ children }: Props) {
           {children}
         </div>
       </main>
-      <footer> Footer</footer>
+      <footer className='flex justify-center items-center gap-4 '>
+        <div className='flex items-center justify-center gap-1'>
+          <p>Build with</p>
+          <SiReact width={50} height={50} className='text-cyan-500' />
+          <SiNextdotjs width={50} height={50} />
+          <SiTailwindcss width={50} height={50} className='text-cyan-500' />
+          <SiVercel width={50} height={50} className='text-black-700' />
+        </div>
+        <div className='flex items-center justify-center gap-1'>
+          <p>& </p>
+          <AiFillHeart width={50} height={50} className='text-red-700' />
+          <p><Image src="/fs-logo-white.png" alt="Felipe Santana" width={12} height={12} className='bg-transparent'/></p>
+        </div>
+      </footer>
     </div>
   )
 }
