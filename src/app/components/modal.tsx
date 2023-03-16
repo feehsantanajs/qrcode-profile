@@ -39,10 +39,10 @@ export function Modal({isActive,datas}:ModalProps) {
         <main className='flex flex-col  gap-10 items-center justify-center h-[80%] border border-gray-300 mt-10 text-black p-4'>
             <h1 className='text-5xl text-center'> {nameSplitted?.[0]}</h1>
             <p className=''>Scan me</p>
-            <QRCodeSVG value={`http://127.0.0.1:3000/${githubSplitted?.[3]}`} />,
+            <QRCodeSVG value={`https://qrcode-profile.vercel.app/${githubSplitted?.[3]}`} />,
         </main>
-        <footer>
-          <div className='border w-4 h-4 rounded-full bg-gray-400'></div>
+        <footer className='flex items-center justify-center h-20'>
+          <div className='border w-20 h-6 rounded-full border border-gray-600'></div>
         </footer>
       </motion.div>
     )
