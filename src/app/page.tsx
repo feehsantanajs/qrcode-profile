@@ -9,46 +9,46 @@ import { Deaboard } from "./components/deashboard";
 import { Modal } from "./components/modal";
 
 
-
+//Validation before send datas
 const schemaZod = z.object({
   name: z.string().min(1, { message: 'Required' }),
   linkedin_url: z.string().url({ message: "Invalid url" }),
   github_url: z.string().url({ message: "Invalid url" }),
 });
+
 type FormValue = z.infer<typeof schemaZod>;
-
-type userTypeState = [
-  name: string,
-  linkedin_url:string,
-  github_url:string
-]
-
 
 export default function Home() {
   const [activeModal, setActiveModal] = useState(false);
-  const [user, setUser] = useState<userTypeState>(["", "",""])
+  const [userDatas, setUserDatas] = useState<FormValue>()
+
   const { register, handleSubmit, formState: { errors } } = useForm<FormValue>({
     resolver: zodResolver(schemaZod),
   });
 
-  console.log(user)
-
+  //Creating register on DB
   async function createUser(datas: FormValue) {
-    userFetch.post('/tasks/create', {
+    let githubSplittedUser = datas.github_url.split('/')
+    let slug = githubSplittedUser[3]
+
+    userFetch.post('/create', {
       'name': datas.name,
       'linkedin_url': datas.linkedin_url,
       'github_url': datas.github_url,
-      
-      withCredentials: false,
+      'slug': slug,
+     
     }).then(res => {
-      console.log(res.status)
+      // after fetching open modal and send datas set State to send datas to modal
       setActiveModal(true)
-      setUser([datas.name,datas.linkedin_url,datas.github_url])
+      setUserDatas(datas)
+
     }).catch(function (error) {
+      //in case of error or same register sent
       if (error.response) {
         console.log(error.response.status);
         console.log(error.response.headers);
         alert('Já cadastrado!')
+
       } else {
         console.log('Error', error.message);
       }
@@ -85,11 +85,8 @@ export default function Home() {
             </form>
           </div>
         </Deaboard>
-        <button onClick={()=>{setActiveModal(!activeModal)}}>Acitive</button>
-        <Modal isActive={activeModal} arrayDatas={user}/>
+        <Modal isActive={activeModal} datas={userDatas}/>
       </div>
-
-     
     </>
 
   )

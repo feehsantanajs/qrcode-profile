@@ -15,5 +15,6 @@ model User {
   name      String
   linkedin  String   @unique
   github    String   @unique
+  slug      String   @unique
   createdAt DateTime @default(now())
 }
