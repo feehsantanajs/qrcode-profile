@@ -11,7 +11,7 @@ type Props = {
 
 export function Deaboard({ children }: Props) {
   return (
-    <div className="grid grid-rows-layout m-10 p-6 max-w-[1160px] w-[100%] bg-purple-upt-500 rounded"  >
+    <div className="grid grid-rows-layout m-20 p-6 max-w-[1160px] w-[100%] bg-purple-upt-500 rounded"  >
       <header className="flex items-center justify-between">
         <div className="flex items-center gap-3 ">
           <button className="w-4 h-4 bg-[#ED6A5E] rounded-full"></button>
