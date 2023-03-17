@@ -68,12 +68,12 @@ console.log(datasGithub)
         {isLoading
         ? <LinearProgress />
         : findDatas ? 
-          <div className=" p-10 flex flex-col items-center justify-center" key={findDatas.id}>
+          <div className=" p-10 flex flex-col items-start justify-center lg:items-center" key={findDatas.id}>
     
             <h1 className="mt-10 text-3xl">Hello, my name is {findDatas.name} </h1>
 
             {datasGithub
-            ? <div className="flex items-center gap-6 max-w-[50%] mt-10">
+            ? <div className="flex flex-col items-center justify-center gap-6 max-w-[100%] mt-10 lg:flex-row lg:max-w-[50%]">
 
                 <Image src={`https://github.com/${params.slug}.png`} alt="" width={200} height={200} style={{borderRadius:20}} />
                 <div className="">

@@ -21,7 +21,7 @@ export function Deaboard({ children }: Props) {
         <span> QrCode Profile</span>
         <div className="w-14">&nbsp;</div>
       </header>
-      <main className="grid grid-cols-principal max-h-full h-[50rem] py-8">
+      <main className="grid grid-cols-principal max-h-full  py-8 lg:h-[50rem]">
         <div className="max-h-full flex flex-col gap-10">
           <Link href="/"><BsPencilSquare size={25} className='text-pink-700 '/></Link>
           <Link href="/"><BsSearch size={25} className='transition ease-in-out duration-300'/></Link>
